@@ -9,6 +9,7 @@ import (
 
 type Telemetry interface {
 	StartChild(ctx context.Context, moduleName, childName string) (context.Context, Child)
+	Log() *slog.Logger
 	Shutdown(ctx context.Context) error
 }
 

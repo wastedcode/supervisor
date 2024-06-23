@@ -39,7 +39,7 @@ func initLocalOtel(config Config) (Otel, error) {
 
 	otel.spanExporter = spanExporter
 	otel.traceProvider = traceProvider
-	otel.logger = getSimpleJsonLogger()
+	otel.logger = getSimpleJsonLogger(config.LogLevel)
 
 	// In GCP gcppropagator.CloudTraceOneWayPropagator{}
 	propagator := propagation.NewCompositeTextMapPropagator(

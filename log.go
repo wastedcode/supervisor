@@ -21,8 +21,8 @@ const (
 	KeyHttpResponseStatusCode = string(semconv.HTTPStatusCodeKey)
 )
 
-func getSimpleJsonLogger() *slog.Logger {
-	return slog.New(slog.NewJSONHandler(os.Stdout, nil))
+func getSimpleJsonLogger(level slog.Level) *slog.Logger {
+	return slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: level}))
 }
 
 type HttpRequest struct {
