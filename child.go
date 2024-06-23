@@ -19,6 +19,10 @@ func (c Child) Log(ctx context.Context, msg string, attrs ...slog.Attr) {
 	c.logger.LogAttrs(ctx, slog.LevelInfo, msg, attrs...)
 }
 
+func (c Child) Debug(ctx context.Context, msg string, attrs ...slog.Attr) {
+	c.logger.LogAttrs(ctx, slog.LevelDebug, msg, attrs...)
+}
+
 func (c Child) End() {
 	c.span.End()
 }
